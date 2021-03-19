@@ -5,18 +5,18 @@ let todoData = require("../data/todo");
 /* GET home page. */
 router.get('/', function(req, res, next) {
     let todos = todoData
+    let header = ""
     if (todos.length == 0) {
-        todos = ["There are no To Dos yet!"];
-        console.log(todos)
+        todos = [];
     }
+
     res.render('index', { 
         title: 'Unit 2 Assessment',
-        todos: todos
+        todos,
     });
 });
 
 router.post('/add', function(req, res, next) {
-    console.log(req.body.todo )
     if(req.body.todo !== "") {
         todoData.push({
             todo: req.body.todo,
