@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>To Do List</h1>
+        <ul>
+            <% for (todo of todos) { %>
+                <li class="d-flex" ><%= todo.todo %> - <%= (todo.done) ? "Done" : "Not Done" %>&nbsp;
+                    <form action="/delete/<%= todo.todo %>" method="GET">
+                        <button type="submit">DELETE</button>
+                    </form>
+                </spain>
+                </li>
+            <% } %>
+        </ul>
+    <hr>
+    <form action="/add" method="POST">
+        <input type="text" name="todo" placeholder="Exercise">
+        <button type="submit">Add To Do</button>
+    </form>
+  </body>
+</html>
